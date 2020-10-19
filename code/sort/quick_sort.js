@@ -1,4 +1,4 @@
-// 快速排序（二分法）
+// 快速排序（二分法 递归）
 function quickSort (ary) {
   if (ary.length <= 1) return ary; //数组长度为1或者0
 
