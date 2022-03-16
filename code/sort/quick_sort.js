@@ -1,4 +1,5 @@
 // 快速排序（二分法 递归）
+// 取中间值：小于此值放左边，大等于右边
 function quickSort (ary) {
   if (ary.length <= 1) return ary; //数组长度为1或者0
 

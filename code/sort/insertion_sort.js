@@ -1,4 +1,6 @@
 // 插入排序
+// 原理：
+// 每次从无序表中取出最后一个元素，把它插入到有序表的合适位置，使有序表仍然有序。
 function insertSort(ary) {
   for (let i = 1; i < ary.length; i++) {
     let item = ary[i];

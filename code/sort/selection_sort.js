@@ -1,4 +1,5 @@
 // 选择排序
+// 每次选择最小的值放在开头，下一次选择从未选择值中选取
 function selectSort() {
   for (let i = 0; i < ary.length - 1; i++) {
     let min = ary[i];
