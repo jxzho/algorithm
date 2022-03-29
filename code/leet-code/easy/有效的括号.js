@@ -4,13 +4,23 @@
 // 左括号必须用相同类型的右括号闭合。
 // 左括号必须以正确的顺序闭合。
 
-// 输入：s = "()"
+// 输入：s = "([])"
 // -> true
 
-const map = {
-  ']': '[',
-  '}': '{',
-  ')': '(',
+// 输入：s = "()[]{}"
+// -> true
+
+// 输入：s = "([)]"
+// -> false
+
+const map = new Map([
+  [']', '['],
+  ['}', '{'],
+  [')', '('],
+])
+
+const isLeftBracket = (val) => {
+  return !map.has(val)
 }
 
 /**
@@ -18,22 +28,24 @@ const map = {
  * @return {boolean}
  */
 var isValid = function (s) {
-  // 排除奇数
+  // 奇数个数直接不符
   if (s.length % 2 !== 0) {
     return false
   }
 
+  // 利用栈的FILO
+  // 先将属于括号左边的字符依次入栈，一旦遇到属于右括号的字符就开始出栈并和该字符进行比对
   const stack = []
   for (str of s) {
-    if (!(str in map)) {
+    if (isLeftBracket(str)) {
       stack.push(str)
-    } else {
-      if (map[str] === stack.pop()) {
-        continue
-      } else {
-        return false
-      }
+      continue
+    }
+
+    if (map.get(str) !== stack.pop()) {
+      return false
     }
   }
+
   return stack.length === 0
 }
