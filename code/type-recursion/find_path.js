@@ -1,9 +1,7 @@
-
-// find_path('231', areas) => ['11', '23', '231']
-
 /**
  * 
  * 根据 id 返回其所在的路径，没有返回 null
+ * find_path('231', areas) // ['11', '23', '231']
  * 
  * @param {string|number} id 待查找的 id
  * @param {array} data 待查找的数据
